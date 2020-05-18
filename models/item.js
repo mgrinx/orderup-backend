@@ -9,15 +9,7 @@ const itemSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Restaurant",
     required: true
-  },
-  parentItemId: {
-    type: Schema.Types.ObjectId,
-    ref: "Item"
-  },
-  addons: [{
-      type: Schema.Types.ObjectId,
-      ref: "Item"
-  }]
+  }
 });
 
 const Item = mongoose.model("Item", itemSchema);

@@ -7,9 +7,9 @@ const restaurantSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Item"
   }],
-  chefs: [{
+  orders: [{
     type: Schema.Types.ObjectId,
-    ref: "Chef"
+    ref: "Order"
   }]
 });
 
