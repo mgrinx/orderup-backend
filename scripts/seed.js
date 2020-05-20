@@ -9,8 +9,7 @@ const db = require("../models");
 
 module.exports = async()=>{
     try {
-        let e = (await db.Restaurant.find({})).length
-        let empty = e > 0;
+        let empty = (await db.Restaurant.find({})).length < 0;
         if(empty) return;
 
         for (let model of [db.Restaurant, db.Item, db.Order, db.OrderItem]) {
