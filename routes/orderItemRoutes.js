@@ -3,7 +3,7 @@ const orderItemController = require("../controllers/orderItemController");
 
 module.exports = app => {
 
-    app.get("/orders", async(req,res)=>{
+    app.get("/orderitems", async(req,res)=>{
         try {
             let r = await db.OrderItem.find({});
             res.json(r);
