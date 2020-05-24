@@ -3,10 +3,10 @@ const db = require("../models");
 module.exports = {
     create: async(req,res)=>{
         try {
-            let rOrdItm = await db.OrderItem.create(req.body);
-            let r = await db.Order.findByIdAndUpdate(req.params.orderId, {
+            let r = await db.OrderItem.create(req.body);
+            await db.Order.findByIdAndUpdate(req.params.orderId, {
                 $push: {
-                    items: rOrdItm._id
+                    items: r._id
                 }
             })
             res.status(201);
