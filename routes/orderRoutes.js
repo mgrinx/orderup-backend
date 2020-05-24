@@ -13,7 +13,8 @@ module.exports = app => {
 
     app.post("/orders", async(req,res)=>{
         try {
-            await db.Order.create(req.body);
+            let r = await db.Order.create(req.body);
+            res.json(r)
             res.status(201);
         } catch(err) {
             console.log(err);
