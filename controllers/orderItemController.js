@@ -4,7 +4,7 @@ module.exports = {
     create: async(req,res)=>{
         try {
             let r = await db.OrderItem.create(req.body);
-            await db.Order.findByIdAndUpdate(req.params.orderId, {
+            await db.Order.findByIdAndUpdate(req.body.orderId, {
                 $push: {
                     items: r._id
                 }
