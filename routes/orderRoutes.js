@@ -29,6 +29,20 @@ module.exports = app => {
         }
     });
 
+    //add items to order
+    app.put("/orders/:id", async(req,res)=>{
+        try {
+            let r = await db.Order.findByIdAndUpdate(req.params.id, {
+                $push: {
+                    items: req.body
+                }
+            });
+            res.json(r);
+        } catch(err) {
+            console.log(err);
+        }
+    });
+
     app.delete("/orders/:id", async(req,res)=>{
         orderController.delete(req,res);
     });
