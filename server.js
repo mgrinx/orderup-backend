@@ -9,6 +9,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 
+app.options('*', cors());
+
 require("./routes")(app);
 require("./scripts/seed")();
 
