@@ -12,6 +12,15 @@ module.exports = app => {
         }
     });
 
+    app.get("/orderitems/:id", async(req,res)=>{
+        try {
+            let r = await db.OrderItem.findById(req.params.id);
+            res.json(r);
+        } catch(err) {
+            console.log(err);
+        }
+    });
+
     app.get("/orderitems/:id/item", async(req,res)=>{
         orderItemController.getItem(req,res);
     });
