@@ -19,7 +19,7 @@ module.exports = {
     getItem: async(req,res)=>{
         try {
             let r = await db.OrderItem.findById(req.params.id);
-            let { itemId: i } = await r.populate("itemId").execPopulate();
+            let i = await db.Item.findById(r.data.itemId);
             res.json(i);
         } catch(err) {
             console.log(err);
